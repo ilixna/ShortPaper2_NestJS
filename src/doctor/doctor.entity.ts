@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, Connection } from 'typeorm';
+import { Sexo } from 'src/sexo/sexo.entity';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne} from 'typeorm';
 
 @Entity()
 export class Doctor {
@@ -14,9 +15,9 @@ export class Doctor {
   @Column()
   imagen: string;
 
-  @Column()
-  sexo: string;
-
+  @ManyToOne(()=>Sexo,(sexo)=>sexo.doctores)
+  @JoinColumn({name:'sexo_id'})
+  sexo:Sexo;
 
 }
 

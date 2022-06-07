@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { DbconectionModule } from './dbconection/dbconection.module';
 import { DoctorController } from './doctor/doctor.controller';
 import { DoctorModule } from './doctor/doctor.module';
-
 import { DoctorService } from "./doctor/doctor.service";
 
 
