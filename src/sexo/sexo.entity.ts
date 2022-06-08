@@ -8,12 +8,12 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class SexoEntity {
+export class GeneroEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  sexo: string;
+  Genero: string;
 
   @OneToMany(() => DoctorEntity, (doctor) => doctor.sexo)
   doctores: DoctorEntity[];
