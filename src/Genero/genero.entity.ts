@@ -15,6 +15,6 @@ export class GeneroEntity {
   @Column()
   Genero: string;
 
-  @OneToMany(() => DoctorEntity, (doctor) => doctor.sexo)
+  @OneToMany(() => DoctorEntity, (doctor) => doctor.genero)
   doctores: DoctorEntity[];
 }
