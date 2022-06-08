@@ -1,19 +1,22 @@
-import { Doctor } from 'src/doctor/doctor.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany,JoinTable} from 'typeorm';
+import { DoctorEntity } from 'src/doctor/doctor.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 
 @Entity()
-export class Especialidad {
-    @PrimaryGeneratedColumn()
-    id: number;
-       
-    @Column()
-    nombre: string;
+export class EspecialidadEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+  @Column()
+  nombre: string;
 
-    @ManyToMany(() => Doctor, { 
-        cascade: true 
-    })
-
-@JoinTable()
-categories: Doctor[];
-
+  @ManyToMany(() => DoctorEntity, {
+    cascade: true,
+  })
+  @JoinTable()
+  categories: DoctorEntity[];
 }

@@ -1,15 +1,20 @@
-import { Doc } from 'prettier';
-import { Doctor } from 'src/doctor/doctor.entity';
-import { Entity, Column, PrimaryGeneratedColumn,JoinColumn, OneToMany} from 'typeorm';
+import { DoctorEntity } from 'src/doctor/doctor.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  OneToMany,
+} from 'typeorm';
 
 @Entity()
-export class Sexo {
+export class SexoEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   sexo: string;
 
-  @OneToMany(()=>Doctor,(doctor)=>doctor.sexo)
-  doctores: Doctor[];
+  @OneToMany(() => DoctorEntity, (doctor) => doctor.sexo)
+  doctores: DoctorEntity[];
 }
