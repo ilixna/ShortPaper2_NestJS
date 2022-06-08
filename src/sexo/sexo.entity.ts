@@ -3,20 +3,18 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  ManyToMany,
-  JoinTable,
+  JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
-export class EspecialidadEntity {
+export class GeneroEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
-  nombre: string;
 
-  @ManyToMany(() => DoctorEntity, {
-    cascade: true,
-  })
-  @JoinTable()
-  categories: DoctorEntity[];
+  @Column()
+  Genero: string;
+
+  @OneToMany(() => DoctorEntity, (doctor) => doctor.sexo)
+  doctores: DoctorEntity[];
 }

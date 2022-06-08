@@ -1,15 +1,18 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm'
-import { Doctor } from 'src/doctor/doctor.entity';
-import { Especialidad } from "../especialidad/especialidad.entity";
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { DoctorEntity } from 'src/doctor/doctor.entity';
+import { GeneroEntity } from 'src/sexo/sexo.entity';
+import { EspecialidadEntity } from '../especialidad/especialidad.entity';
 
 @Module({
-    imports: [TypeOrmModule.forRoot({
-        type: 'sqlite',
-        database: 'bd.sqlite',
-        entities: [Doctor,Especialidad],
-        synchronize: true,
-    })],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'bd.sqlite',
+      entities: [DoctorEntity, EspecialidadEntity, GeneroEntity],
+      synchronize: true,
+    }),
+  ],
   controllers: [],
   providers: [],
 })

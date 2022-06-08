@@ -1,23 +1,28 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, Connection } from 'typeorm';
-
+import { Persona } from 'src/persona/persona.abstract';
+import { GeneroEntity } from 'src/sexo/sexo.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  ManyToOne,
+} from 'typeorm';
+import { Doctor } from './doctor.model';
 @Entity()
-export class Doctor {
+export class DoctorEntity extends Doctor {
   @PrimaryGeneratedColumn()
-  id: number;
+  protected id: string;
 
   @Column()
-  nombre: string;
+  protected nombre: string;
 
   @Column()
-  apellido: string;
+  protected apellido: string;
 
   @Column()
   imagen: string;
 
-  @Column()
-  sexo: string;
-
-
+  @ManyToOne(() => GeneroEntity, (sexo) => sexo.doctores)
+  @JoinColumn({ name: 'sexo_id' })
+  sexo: GeneroEntity;
 }
-
-
