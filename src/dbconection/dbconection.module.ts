@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DoctorEntity } from 'src/doctor/doctor.entity';
-import { GeneroEntity } from 'src/sexo/sexo.entity';
+import { GeneroEntity } from 'src/Genero/genero.entity';
 import { EspecialidadEntity } from '../especialidad/especialidad.entity';
 
 @Module({
