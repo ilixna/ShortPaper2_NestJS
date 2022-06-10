@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { EspecialidadDto } from './dtos/especialidad.busqueda';
 import { IBusqueda } from 'src/busqueda/IBusqueda';
 import { EspecialidadEntity } from 'src/especialidad/especialidad.entity';
 import { Especialidad } from 'src/especialidad/especialidad.model';
@@ -9,14 +10,14 @@ import { Doctor } from './doctor.model';
 
 
 @Injectable()
-export class BusquedaRepository implements IBusqueda<Especialidad,Doctor>{
+export class BusquedaRepository implements IBusqueda<EspecialidadDto,Doctor>{
 
     constructor(
         @InjectRepository(DoctorEntity)
         private doctorRepository: Repository<DoctorEntity>,
       ) {}
 
-    async busquedaFiltrada(filtro: Especialidad): Promise<DoctorEntity[]> {
+    async busquedaFiltrada(filtro: EspecialidadDto): Promise<DoctorEntity[]> {
         return this.doctorRepository.createQueryBuilder('doctor')
             .leftJoinAndSelect('doctor.categories', 'category')
             .where('category.nombre like :nombre', { nombre: filtro.nombre })
@@ -24,7 +25,7 @@ export class BusquedaRepository implements IBusqueda<Especialidad,Doctor>{
     }
 
     async busqueda(): Promise<Doctor[]> {
-        return this.doctorRepository.find(undefined)
+        return this.doctorRepository.find({relations: ['categories', 'genero']})
     }
 }
 
