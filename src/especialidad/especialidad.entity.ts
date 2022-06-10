@@ -11,13 +11,7 @@ import { especialidad } from './especialidad.model';
 @Entity()
 export class EspecialidadEntity extends especialidad {
   @PrimaryGeneratedColumn()
-  protected id: string;
+  id: string;
   @Column()
-  protected nombre: string;
-
-  @ManyToMany(() => DoctorEntity, {
-    cascade: true,
-  })
-  @JoinTable()
-  categories: DoctorEntity[];
+  nombre: string;
 }
