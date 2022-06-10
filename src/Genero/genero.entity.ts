@@ -1,4 +1,5 @@
 import { DoctorEntity } from 'src/doctor/doctor.entity';
+import { Genero } from './genero.model';
 import {
   Entity,
   Column,
@@ -7,8 +8,9 @@ import {
   OneToMany,
 } from 'typeorm';
 
+
 @Entity()
-export class GeneroEntity {
+export class GeneroEntity extends Genero {
   @PrimaryGeneratedColumn()
   id: number;
 
