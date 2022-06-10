@@ -20,6 +20,7 @@ export class BusquedaRepository implements IBusqueda<EspecialidadDto,Doctor>{
     async busquedaFiltrada(filtro: EspecialidadDto): Promise<DoctorEntity[]> {
         return this.doctorRepository.createQueryBuilder('doctor')
             .leftJoinAndSelect('doctor.categories', 'category')
+            .leftJoinAndSelect('doctor.genero', 'gender')
             .where('category.nombre like :nombre', { nombre: filtro.nombre })
             .getMany()
     }
@@ -28,10 +29,3 @@ export class BusquedaRepository implements IBusqueda<EspecialidadDto,Doctor>{
         return this.doctorRepository.find({relations: ['categories', 'genero']})
     }
 }
-
-/*
-      return this._repository.createQueryBuilder()
-        .leftJoinAndSelect("especialidad.categories", "categorie")
-        .leftJoinAndSelect("categorie.doctor", "doctorr")
-        .where("especialidad.nombre = :nombre", { name: filtro })
-        .getMany()*/ 
