@@ -1,4 +1,3 @@
-import { Persona } from 'src/persona/persona.abstract';
 import { GeneroEntity } from 'src/Genero/genero.entity';
 import {
   Entity,
@@ -23,6 +22,6 @@ export class DoctorEntity extends Doctor {
   imagen: string;
 
   @ManyToOne(() => GeneroEntity, (Genero) => Genero.doctores)
-  @JoinColumn({ name: 'sexo_id' })
+  @JoinColumn({ name: 'genero_id' })
   genero: GeneroEntity;
 }
