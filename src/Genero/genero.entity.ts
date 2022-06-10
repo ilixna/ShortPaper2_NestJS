@@ -1,13 +1,6 @@
 import { DoctorEntity } from 'src/doctor/doctor.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Genero } from './genero.model';
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  JoinColumn,
-  OneToMany,
-} from 'typeorm';
-
 
 @Entity()
 export class GeneroEntity extends Genero {
