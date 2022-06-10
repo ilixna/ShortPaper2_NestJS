@@ -1,5 +1,4 @@
-import { Persona } from 'src/persona/persona.abstract';
-import { GeneroEntity } from 'src/Genero/genero.entity';
+import { GeneroEntity } from 'src/genero/genero.entity';
 import {
   Entity,
   Column,
