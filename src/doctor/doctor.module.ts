@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { DoctorService } from './doctor.service';
 import { DoctorController } from './doctor.controller';
-import { DbconectionModule } from '../dbconection/dbconection.module';
 
 @Module({
-  imports: [DbconectionModule, DoctorModule],
+  exports: [],
+  imports: [],
   controllers: [DoctorController],
   providers: [DoctorService],
 })

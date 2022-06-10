@@ -6,13 +6,14 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
+import { especialidad } from './especialidad.model';
 
 @Entity()
-export class EspecialidadEntity {
+export class EspecialidadEntity extends especialidad {
   @PrimaryGeneratedColumn()
-  id: number;
+  protected id: string;
   @Column()
-  nombre: string;
+  protected nombre: string;
 
   @ManyToMany(() => DoctorEntity, {
     cascade: true,
