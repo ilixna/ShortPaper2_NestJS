@@ -6,10 +6,10 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { especialidad } from './especialidad.model';
+import { Especialidad } from './especialidad.model';
 
 @Entity()
-export class EspecialidadEntity extends especialidad {
+export class EspecialidadEntity extends Especialidad {
   @PrimaryGeneratedColumn()
   id: string;
   @Column()
