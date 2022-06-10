@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
+import { APP_PIPE } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DbconectionModule } from './dbconection/dbconection.module';
@@ -9,6 +10,6 @@ import { DoctorService } from './doctor/doctor.service';
 @Module({
   imports: [DbconectionModule, DoctorModule],
   controllers: [AppController, DoctorController],
-  providers: [AppService, DoctorService],
+  providers: [AppService, DoctorService/*, {provide: APP_PIPE, useValue: new ValidationPipe({whitelist: true})}*/],
 })
 export class AppModule {}
