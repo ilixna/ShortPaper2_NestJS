@@ -22,6 +22,6 @@ export class DoctorEntity extends Doctor {
   imagen: string;
 
   @ManyToOne(() => GeneroEntity, (Genero) => Genero.doctores)
-  @JoinColumn({ name: 'sexo_id' })
+  @JoinColumn({ name: 'genero_id' })
   genero: GeneroEntity;
 }
