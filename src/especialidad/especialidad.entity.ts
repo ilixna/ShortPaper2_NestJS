@@ -14,4 +14,6 @@ export class EspecialidadEntity extends Especialidad {
   id: string;
   @Column()
   nombre: string;
+  @Column()
+  nombre2: string;
 }
