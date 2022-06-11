@@ -10,6 +10,10 @@ import { DoctorService } from './doctor/doctor.service';
 @Module({
   imports: [DbconectionModule, DoctorModule],
   controllers: [AppController, DoctorController],
-  providers: [AppService, DoctorService,{provide: APP_PIPE, useClass: ValidationPipe}],
+  providers: [
+    AppService,
+    DoctorService,
+    { provide: APP_PIPE, useClass: ValidationPipe },
+  ],
 })
 export class AppModule {}

@@ -1,9 +1,21 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
-import { Especialidad } from 'src/especialidad/especialidad.model';
+import { Controller, Get, Query } from '@nestjs/common';
 import { EspecialidadDto } from './dtos/especialidad.busqueda';
 import { DoctorService } from './doctor.service';
-import { BusquedaRepository } from './doctor.repository';
+import { ResponseToReturn } from 'src/compartida/responsetoreturn';
+
 @Controller('doctor')
 export class DoctorController {
-  constructor(private readonly appService: DoctorService) {}
+  constructor(private readonly doctorService: DoctorService) {}
+
+  @Get('/todos')
+  async busquedaDoctores() {
+    return ResponseToReturn(await this.doctorService.busquedaDoctores());
+  }
+
+  @Get()
+  async buscarDoctorPorEspecialidad(@Query() especialidad: EspecialidadDto) {
+    return ResponseToReturn(
+      await this.doctorService.busquedaFiltradaDoctores(especialidad),
+    );
+  }
 }
