@@ -1,4 +1,4 @@
-export class especialidad {
-  protected id: string;
-  protected nombre: string;
+export class Especialidad {
+  id: string;
+  nombre: string;
 }

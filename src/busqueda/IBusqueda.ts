@@ -1,4 +1,4 @@
 export interface IBusqueda<T, N> {
-  busquedaFiltrada(filtro: T): N;
-  busqueda(): N;
+  busquedaFiltrada(filtro: T): Promise<N[]>;
+  busqueda(): Promise<N[]>;
 }

@@ -1,3 +1,4 @@
+import { EspecialidadEntity } from 'src/especialidad/especialidad.entity';
 import { GeneroEntity } from 'src/genero/genero.entity';
 import {
   Entity,
@@ -5,18 +6,20 @@ import {
   PrimaryGeneratedColumn,
   JoinColumn,
   ManyToOne,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
 import { Doctor } from './doctor.model';
 @Entity()
 export class DoctorEntity extends Doctor {
   @PrimaryGeneratedColumn()
-  protected id: string;
+  id: string;
 
   @Column()
-  protected nombre: string;
+  nombre: string;
 
   @Column()
-  protected apellido: string;
+  apellido: string;
 
   @Column()
   imagen: string;
@@ -24,4 +27,10 @@ export class DoctorEntity extends Doctor {
   @ManyToOne(() => GeneroEntity, (Genero) => Genero.doctores)
   @JoinColumn({ name: 'genero_id' })
   genero: GeneroEntity;
+
+  @ManyToMany(() => EspecialidadEntity, {
+    cascade: true,
+  })
+  @JoinTable()
+  categories: EspecialidadEntity[];
 }
