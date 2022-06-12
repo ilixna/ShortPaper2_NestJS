@@ -13,15 +13,17 @@ export class BusquedaRepository implements IBusqueda<EspecialidadDto, Doctor> {
     private doctorRepository: Repository<DoctorEntity>,
   ) {}
 
-
-    async busquedaFiltrada(filtro: EspecialidadDto): Promise<DoctorEntity[]> {
-        return await this.doctorRepository.createQueryBuilder('doctor')
-            .leftJoinAndSelect('doctor.categories', 'category')
-            .leftJoinAndSelect('doctor.genero', 'gender')
-            .where('category.nombre like :nombre', { nombre: filtro.nombre })
-            .orWhere('category.nombre2 like :nombre2', { nombre2: filtro.nombre })
-            .getMany()
-    }
+  async busquedaFiltrada(filtro: EspecialidadDto): Promise<DoctorEntity[]> {
+    return await this.doctorRepository
+      .createQueryBuilder('doctor')
+      .leftJoinAndSelect('doctor.categories', 'category')
+      .leftJoinAndSelect('doctor.genero', 'gender')
+      .where('category.nombre like :nombre', { nombre: `${filtro.nombre}` })
+      .orWhere('category.nombre2 like :nombre2', {
+        nombre2: `${filtro.nombre}`,
+      })
+      .getMany();
+  }
 
   async busqueda(): Promise<Doctor[]> {
     return this.doctorRepository.find({
