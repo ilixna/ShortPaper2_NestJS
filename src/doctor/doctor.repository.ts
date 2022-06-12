@@ -26,7 +26,7 @@ export class BusquedaRepository implements IBusqueda<EspecialidadDto, Doctor> {
   }
 
   async busqueda(): Promise<Doctor[]> {
-    return this.doctorRepository.find({
+    return await this.doctorRepository.find({
       relations: ['categories', 'genero'],
     });
   }
