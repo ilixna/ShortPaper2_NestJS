@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { BusquedaRepository } from './doctor.repository';
 import { Doctor } from './doctor.model';
 import { EspecialidadDto } from './dtos/especialidad.busqueda';
+import { IBusqueda } from 'src/busqueda/IBusqueda';
 
 @Injectable()
 export class DoctorService {
   constructor(
     @Inject('IBusqueda')
-    private busquedaRepositorio: BusquedaRepository,
+    private busquedaRepositorio: IBusqueda<EspecialidadDto, Doctor>,
   ) {}
 
   async busquedaDoctores(): Promise<Doctor[]> {
