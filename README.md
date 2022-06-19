@@ -1,73 +1,46 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# ShortPaper2_NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+[![made-with-typeScript](https://img.shields.io/badge/Made%20with-NestJS-1f425f.svg)](https://nestjs.com/)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🔰Integrantes y Commits
 
-## Description
+| Integrantes | Nombre en Github | Tareas realizadas | Título de los Commits mas importantes | Descripciones de los Commits |
+| ------------| ---------------- | ------------------| ----------------------- | ---------------------------- |
+| Cumares, Diego | CRONOXT | <p>°Creación de las tablas de la base de datos utilizando TypeORM.</p> | <p>1.- Creacion de las tablas de la base de datos.</p>2.- Se arreglaron algunos errores. | <p>1.- Se crearon la tablas doctor, especialidad, especialidad_categories_doctor, a traves de los entity.</p>2.- Se agregó la clase abstracta de Persona para que la clase Doctor extienda de ella y a su vez que la clase DoctorEntity Extienda de doctor para adoptar sus comportamientos.|
+| Dias, Iliana | ilixna | <p>°Creación de las clases DoctorService y DoctorController. </p>°Creación de la interfaz IBusqueda. | <p>1.- Creación de la interface IBusqueda. </p>2.- Cambios importantes en Controller y Servicio de doctor. | <p>1.- Creación de la interface IBusqueda y se arreglaron algunos detalles dentro de la clase DoctorController Y DoctorService. </p>2.- Se crearon los métodos busquedaDoctores y busquedaFiltradaDoctores en servicio y en el controlador busquedaDoctores y buscarDoctorPorEspecialidad. Ademas, se creo la clase ResponseToReturn para facilitar el manejo de los datos. |
+| Gavidia, Franco | SARKOT07 | <p>°Creación de la busqueda de todos los doctores. </p><p>°Creación de la busqueda filtrada por especialidad. | <p>1.- Se agrego el repositorio de busqueda. </p><p>2.- Se agrego la busquedafiltrada. </p> | <p>1.- Se agrego la búsqueda de todos los doctores, también se modifico la interface IBusqueda. </p><p>2.- Se agrego la búsqueda filtrada por especialidad, y se modifico las tablas de la entidad doctor. </p> |
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📑Pre-requisitos
+- [Node](https://nodejs.org/en/) - Descargar el Último LTS
+- [NestJS](https://www.typescriptlang.org) - Descargar la versión 8.2.5
+## 📌Instalación
 
-## Installation
+Para instalar [NestJS](https://nestjs.com/) haciendo uso de npm.
 
-```bash
-$ npm install
+```
+npm i -g @nestjs/cli@8.2.5
 ```
 
-## Running the app
+Procedemos a clonar el repositorio
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```
+git clone https://github.com/ilixna/ShortPaper2_NestJS.git
 ```
 
-## Test
+Instalamos los módulos necesarios
 
-```bash
-# unit tests
-$ npm run test
+```
+npm install
+```
+## ⚙️Ejecutar el Servicio
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+Para iniciar el servicio se debe correr el comando:
+```
+npm run start:dev
 ```
 
-## Support
+## 🌎Colaboladores
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- **Diego Cumares** - [CRONOXT](https://github.com/CRONOXT)
+- **Iliana Dias** - [ilixna](https://github.com/ilixna)
+- **Franco Gavidia** - [SARKOT07](https://github.com/SARKOT07)
