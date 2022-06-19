@@ -1,6 +1,6 @@
 # ShortPaper2_NestJS
 
-[![made-with-typeScript](https://img.shields.io/badge/Made%20with-NestJS-1f425f.svg)](https://nestjs.com/)
+[![made-with-typeScript](https://img.shields.io/badge/Made%20with-TypeScript-1f425f.svg)](https://www.typescriptlang.org/) [![made-with-typeScript](https://img.shields.io/badge/Made%20with-NestJS-1f425f.svg)](https://nestjs.com/)
 
 ## 🔰Integrantes y Commits
 
